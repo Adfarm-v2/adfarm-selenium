@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-01-31T02:10:25 IST" name="Default suite" finished-at="2020-01-31T02:10:27 IST" duration-ms="1558">
+  <suite name="Default suite" duration-ms="17836" started-at="2020-01-31T19:39:50 IST" finished-at="2020-01-31T19:40:08 IST">
     <groups>
     </groups>
-    <test started-at="2020-01-31T02:10:25 IST" name="Default test" finished-at="2020-01-31T02:10:27 IST" duration-ms="1558">
+    <test name="Default test" duration-ms="17836" started-at="2020-01-31T19:39:50 IST" finished-at="2020-01-31T19:40:08 IST">
       <class name="testcases.Test_newplayer_creation">
-        <test-method is-config="true" signature="launchbrowser()[pri:0, instance:testcases.Test_newplayer_creation@3901d134]" started-at="2020-01-31T02:10:02 IST" name="launchbrowser" finished-at="2020-01-31T02:10:25 IST" duration-ms="23154" status="PASS">
+        <test-method status="PASS" signature="launchbrowser()[pri:0, instance:testcases.Test_newplayer_creation@396f6598]" name="launchbrowser" is-config="true" duration-ms="9516" started-at="2020-01-31T19:39:41 IST" finished-at="2020-01-31T19:39:50 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchbrowser -->
-        <test-method signature="verifynewplayercreation()[pri:0, instance:testcases.Test_newplayer_creation@3901d134]" started-at="2020-01-31T02:10:25 IST" name="verifynewplayercreation" finished-at="2020-01-31T02:10:27 IST" duration-ms="1370" status="PASS">
+        <test-method status="PASS" signature="newplayercreation()[pri:0, instance:testcases.Test_newplayer_creation@396f6598]" name="newplayercreation" duration-ms="17798" started-at="2020-01-31T19:39:50 IST" finished-at="2020-01-31T19:40:08 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifynewplayercreation -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:testcases.Test_newplayer_creation@3901d134]" started-at="2020-01-31T02:10:27 IST" name="teardown" finished-at="2020-01-31T02:10:27 IST" duration-ms="0" status="PASS">
+        </test-method> <!-- newplayercreation -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:testcases.Test_newplayer_creation@396f6598]" name="teardown" is-config="true" duration-ms="0" started-at="2020-01-31T19:40:08 IST" finished-at="2020-01-31T19:40:08 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
