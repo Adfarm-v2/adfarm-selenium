@@ -5,7 +5,7 @@
     <classes>
       <class name="testcases.Test_newplayer_creation">
         <methods>
-          <include name="verifynewplayercreation"/>
+          <include name="newplayercreation"/>
           <include name="launchbrowser"/>
           <include name="teardown"/>
         </methods>

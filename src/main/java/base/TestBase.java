@@ -1,17 +1,19 @@
 package base;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
 
 public class TestBase {
 
 	public static WebDriver driver;
+	public static Robot robo;
 	public static Properties properties = null;
 
 	public Properties loadpropertyfile() throws IOException {
@@ -21,7 +23,6 @@ public class TestBase {
 		return properties;
 	}
 
-	@BeforeSuite
 	public void launchbrowser() throws IOException {
 
 		loadpropertyfile();
@@ -35,10 +36,16 @@ public class TestBase {
 		driver.manage().window().maximize();
 	}
 
-	@AfterSuite
-	public void teardown() {
-
-		// driver.quit();
-
+	public void keydown() throws AWTException {
+		robo = new Robot();
+		robo.keyPress(KeyEvent.VK_DOWN);
+		robo.keyRelease(KeyEvent.VK_DOWN);
 	}
+
+	public void keyenter() throws AWTException {
+		robo = new Robot();
+		robo.keyPress(KeyEvent.VK_ENTER);
+		robo.keyRelease(KeyEvent.VK_ENTER);
+	}
+
 }
