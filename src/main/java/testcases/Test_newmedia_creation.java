@@ -3,6 +3,7 @@ package testcases;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -27,8 +28,10 @@ public class Test_newmedia_creation extends TestBase {
 
 	@Test
 	public void newmediacreation() throws InterruptedException {
-
-		
+		Thread.sleep(3000);
+		//driver.findElement(By.xpath("//a[@href='/dashboard/media-library']")).click();
+		driver.get("https://dev-app.newsigntv.com/dashboard/media-library");
+		Thread.sleep(4000);
 	}
 	
 	@AfterMethod
