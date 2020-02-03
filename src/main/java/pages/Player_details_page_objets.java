@@ -86,7 +86,7 @@ public class Player_details_page_objets {
 	@FindBy(xpath = "//input[@name='cost']")
 	public static WebElement cost;
 
-	@FindBy(xpath = "//input[@placeholder='search']")
+	@FindBy(xpath = "//input[@id='pac-input']")
 	public static WebElement mapsearch;
 
 	@FindBy(xpath = "//button[@type='submit']")

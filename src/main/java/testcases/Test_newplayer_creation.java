@@ -29,7 +29,7 @@ public class Test_newplayer_creation extends TestBase {
 		Login_page_objects.uname.sendKeys(properties.getProperty("username"));
 		Login_page_objects.pwd.sendKeys(properties.getProperty("password"));
 		Login_page_objects.logbtn.click();
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 
 	@Test(enabled = false)
@@ -75,7 +75,8 @@ public class Test_newplayer_creation extends TestBase {
 		Player_details_page_objets.group.click();
 		Player_details_page_objets.grouptitle.click();
 
-		Player_details_page_objets.mapsearch.sendKeys("singanallur");
+		Player_details_page_objets.mapsearch.sendKeys("coimbatore");
+		Thread.sleep(3000);
 		keydown();
 		keyenter();
 
@@ -120,13 +121,14 @@ public class Test_newplayer_creation extends TestBase {
 
 		WebElement closetime = driver.findElement(By.xpath("//input[@id='close_time']"));
 		js.executeScript("arguments[0].value='10:19 pm';", closetime);
+		
+		Player_details_page_objets.submit.click();
 
 	}
 
-	@Test
+	@Test(enabled = false)
 	public void verifyplayerlist() {
 
-//		login();
 		List<WebElement> totaltablecolumn = driver.findElements(By.xpath("//th[@class='ant-table-align-center']"));
 		System.out.println("Total column: " + totaltablecolumn.size());
 
@@ -142,7 +144,7 @@ public class Test_newplayer_creation extends TestBase {
 
 		for (WebElement user : usernamecolumn) {
 			System.out.println(user.getText());
-			if (user.getText().equals("DentalOffice2")) {
+			if (user.getText().equals("GopiDist1Play4")) {
 				System.out.println("Player successfully created");
 				break;
 			} else {
