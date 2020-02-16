@@ -59,5 +59,13 @@ public class TestBase {
 		robo.keyPress(KeyEvent.VK_ENTER);
 		robo.keyRelease(KeyEvent.VK_ENTER);
 	}
+	public static void controlv() throws AWTException {
+		robo = new Robot();
+		robo.keyPress(KeyEvent.VK_CONTROL);
+		robo.keyPress(KeyEvent.VK_V);
+		robo.setAutoDelay(3000);
+		robo.keyRelease(KeyEvent.VK_CONTROL);
+		robo.keyRelease(KeyEvent.VK_V);
+	}
 
 }

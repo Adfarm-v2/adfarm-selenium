@@ -273,6 +273,37 @@ public class Player_details_page_objets extends TestBase {
 		js.executeScript("arguments[0].value='10:19 pm';", closetime);
 
 		//// //Player_details_page_objets.submit.click();
+	}
+	
+	public static void playerverification() {
 
+		List<WebElement> totaltablecolumn = driver.findElements(By.xpath("//th[@class='ant-table-align-center']"));
+		System.out.println("Total column: " + totaltablecolumn.size());
+
+		List<WebElement> totalrow = driver.findElements(By.xpath("//tr[@class='ant-table-row ant-table-row-level-0']"));
+		System.out.println("Total row: " + totalrow.size());
+
+		List<WebElement> totalcell = driver.findElements(By.xpath("//tbody[@class='ant-table-tbody']//tr//td"));
+		System.out.println("Total cell: " + totalcell.size());
+
+		List<WebElement> usernamecolumns = driver
+				.findElements(By.xpath("//tr[@class='ant-table-row ant-table-row-level-0']//td[2]"));
+		System.out.println("Total usernamecell: " + usernamecolumns.size());
+
+		List<String> totalusernames = new ArrayList<String>();
+		for (WebElement totalusername : usernamecolumns) {
+			totalusernames.add(totalusername.getText());
+		}
+		System.out.println(totalusernames);
+		String testplayer="Autoplayer1";
+		if (totalusernames.contains(testplayer)) {
+			System.out.println("In the list");
+			String userpath="//div[text()='"+testplayer+"']/preceding::td";
+			String playername=driver.findElement(By.xpath(userpath)).getText();
+			String clickpath="//a[text()='"+playername+"']";
+			driver.findElement(By.xpath(clickpath)).click();
+		} else {
+			System.out.println("Not in the list");
+		}
 	}
 }
