@@ -11,6 +11,10 @@ import org.openqa.selenium.support.PageFactory;
 import base.TestBase;
 
 public class New_media_page_objects extends TestBase {
+	
+	
+	@FindBy(xpath = "(//*[text()='Media Library'])[1]")
+	public static WebElement medianame;
 
 	@FindBy(xpath = "(//*[text()='Media Library'])[1]")
 	public static WebElement medialibrary;

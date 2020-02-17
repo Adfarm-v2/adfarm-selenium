@@ -1,53 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" ignored="1" total="2" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="19959" started-at="2020-02-17T13:41:17 IST" finished-at="2020-02-17T13:41:37 IST">
+  <suite name="Default suite" duration-ms="12127" started-at="2020-02-17T13:59:08Z" finished-at="2020-02-17T13:59:20Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="19959" started-at="2020-02-17T13:41:17 IST" finished-at="2020-02-17T13:41:37 IST">
-      <class name="testcases.Test_Logintest">
-        <test-method status="PASS" signature="before()[pri:0, instance:testcases.Test_Logintest@33f88ab]" name="before" is-config="true" duration-ms="7939" started-at="2020-02-17T13:41:17 IST" finished-at="2020-02-17T13:41:25 IST">
+    <test name="Default test" duration-ms="12127" started-at="2020-02-17T13:59:08Z" finished-at="2020-02-17T13:59:20Z">
+      <class name="testcases.Test_newplayer_creation">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testcases.Test_newplayer_creation@77cd7a0]" name="beforeMethod" is-config="true" duration-ms="10700" started-at="2020-02-17T13:59:08Z" finished-at="2020-02-17T13:59:19Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- before -->
-        <test-method status="PASS" signature="logincheck(java.lang.String, java.lang.String)[pri:0, instance:testcases.Test_Logintest@33f88ab]" name="logincheck" duration-ms="309" started-at="2020-02-17T13:41:25 IST" data-provider="logindata" finished-at="2020-02-17T13:41:26 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[automate]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[auto@123]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="verifyplayerlist()[pri:0, instance:testcases.Test_newplayer_creation@77cd7a0]" name="verifyplayerlist" duration-ms="1393" started-at="2020-02-17T13:59:19Z" finished-at="2020-02-17T13:59:20Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- logincheck -->
-        <test-method status="PASS" signature="before()[pri:0, instance:testcases.Test_Logintest@33f88ab]" name="before" is-config="true" duration-ms="11266" started-at="2020-02-17T13:41:26 IST" finished-at="2020-02-17T13:41:37 IST">
+        </test-method> <!-- verifyplayerlist -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testcases.Test_newplayer_creation@77cd7a0]" name="afterMethod" is-config="true" duration-ms="1" started-at="2020-02-17T13:59:20Z" finished-at="2020-02-17T13:59:20Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- before -->
-        <test-method status="PASS" signature="logincheck(java.lang.String, java.lang.String)[pri:0, instance:testcases.Test_Logintest@33f88ab]" name="logincheck" duration-ms="292" started-at="2020-02-17T13:41:37 IST" data-provider="logindata" finished-at="2020-02-17T13:41:37 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[automate]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[auto@12]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- logincheck -->
-      </class> <!-- testcases.Test_Logintest -->
+        </test-method> <!-- afterMethod -->
+      </class> <!-- testcases.Test_newplayer_creation -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
