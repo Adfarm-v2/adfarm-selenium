@@ -29,9 +29,9 @@ public class TestBase {
 
 	public void launchbrowser() throws IOException {
 		loadpropertyfile();
-		String Driverlocation = properties.getProperty("driverlocation");
+		String DriverLocation = properties.getProperty("driverlocation");
 		String Url = properties.getProperty("url");
-		System.setProperty("webdriver.chrome.driver", Driverlocation);
+		System.setProperty("webdriver.chrome.driver", DriverLocation);
 		driver = new ChromeDriver();
 		driver.get(Url);
 		driver.manage().window().maximize();
@@ -59,6 +59,7 @@ public class TestBase {
 		robo.keyPress(KeyEvent.VK_ENTER);
 		robo.keyRelease(KeyEvent.VK_ENTER);
 	}
+
 	public static void controlv() throws AWTException {
 		robo = new Robot();
 		robo.keyPress(KeyEvent.VK_CONTROL);

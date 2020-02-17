@@ -34,9 +34,9 @@ public class Test_Logintest extends TestBase {
 
 	public String[][] GetExcelData() throws BiffException, IOException {
 
-		FileInputStream m = new FileInputStream("C:\\Selenium Excel Sheet\\ERPTesting.xls");
+		FileInputStream m = new FileInputStream("C:\\Users\\Gopinath\\Desktop\\Exceldata\\ERPTesting.xls");
 		Workbook excel = Workbook.getWorkbook(m);
-		Sheet sheet = excel.getSheet("Sheet1");
+		Sheet sheet = excel.getSheet("loginsheet");
 		int rowcount = sheet.getRows();
 		int columncount = sheet.getColumns();
 
