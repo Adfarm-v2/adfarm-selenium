@@ -5,8 +5,9 @@
     <classes>
       <class name="testcases.Test_newplayer_creation">
         <methods>
+          <include name="logincheck" invocation-numbers="0"/>
+          <include name="beforestep"/>
           <include name="beforeMethod"/>
-          <include name="newplayercreationtesting"/>
         </methods>
       </class> <!-- testcases.Test_newplayer_creation -->
     </classes>

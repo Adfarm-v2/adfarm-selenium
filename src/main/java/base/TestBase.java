@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.BeforeSuite;
 
 import pages.Login_page_objects;
 
@@ -26,8 +27,9 @@ public class TestBase {
 		properties.load(fileinputstream);
 		return properties;
 	}
-
-	public void launchbrowser() throws IOException {
+	
+	@BeforeSuite
+	public void beforestep() throws IOException {
 		loadpropertyfile();
 		String DriverLocation = properties.getProperty("driverlocation");
 		String Url = properties.getProperty("url");
@@ -35,10 +37,6 @@ public class TestBase {
 		driver = new ChromeDriver();
 		driver.get(Url);
 		driver.manage().window().maximize();
-	}
-
-	public void loginpage() throws IOException {
-		loadpropertyfile();
 		PageFactory.initElements(driver, Login_page_objects.class);
 		String Username = properties.getProperty("username");
 		String Password = properties.getProperty("password");
@@ -46,6 +44,7 @@ public class TestBase {
 		Login_page_objects.pwd.sendKeys(Password);
 		Login_page_objects.logbtn.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
 	}
 
 	public static void keydown() throws AWTException {

@@ -22,7 +22,7 @@ public class Test_Logintest extends TestBase {
 	@BeforeMethod
 	public void before() throws IOException {
 
-		launchbrowser();
+//		launchbrowser();
 		Ddpage = new Login_page_objects();
 	}
 

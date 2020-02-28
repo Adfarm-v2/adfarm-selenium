@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" ignored="1" total="2" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="36329" started-at="2020-02-19T12:58:11 IST" finished-at="2020-02-19T12:58:47 IST">
+  <suite name="Suite" duration-ms="28352" started-at="2020-02-28T17:22:44 IST" finished-at="2020-02-28T17:23:12 IST">
     <groups>
     </groups>
-    <test name="Test" duration-ms="36329" started-at="2020-02-19T12:58:11 IST" finished-at="2020-02-19T12:58:47 IST">
+    <test name="Test" duration-ms="28352" started-at="2020-02-28T17:22:44 IST" finished-at="2020-02-28T17:23:12 IST">
       <class name="testcases.Test_newplayer_creation">
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testcases.Test_newplayer_creation@33f88ab]" name="beforeMethod" is-config="true" duration-ms="10493" started-at="2020-02-19T12:58:11 IST" finished-at="2020-02-19T12:58:22 IST">
+        <test-method status="PASS" signature="beforestep()[pri:0, instance:testcases.Test_newplayer_creation@27a8c74e]" name="beforestep" is-config="true" duration-ms="8608" started-at="2020-02-28T17:22:35 IST" finished-at="2020-02-28T17:22:44 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforestep -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testcases.Test_newplayer_creation@27a8c74e]" name="beforeMethod" is-config="true" duration-ms="7" started-at="2020-02-28T17:22:44 IST" finished-at="2020-02-28T17:22:44 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="logincheck(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testcases.Test_newplayer_creation@33f88ab]" name="logincheck" duration-ms="25659" started-at="2020-02-19T12:58:22 IST" data-provider="playerdata" finished-at="2020-02-19T12:58:47 IST">
+        <test-method status="PASS" signature="logincheck(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testcases.Test_newplayer_creation@27a8c74e]" name="logincheck" duration-ms="28166" started-at="2020-02-28T17:22:44 IST" data-provider="playerdata" finished-at="2020-02-28T17:23:12 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[Autoplayer2]]>
+                <![CDATA[pixels2]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[autoplayer2]]>
+                <![CDATA[pixels2]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[Autoplayer2]]>
+                <![CDATA[pixels2]]>
               </value>
             </param>
             <param index="3">
@@ -50,7 +54,7 @@
             </param>
             <param index="7">
               <value>
-                <![CDATA[]]>
+                <![CDATA[Dinesh]]>
               </value>
             </param>
             <param index="8">

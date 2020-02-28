@@ -23,8 +23,6 @@ public class Test_newplayer_creation extends TestBase {
 	@BeforeMethod
 	public void beforeMethod() throws IOException {
 
-		launchbrowser();
-		loginpage();
 		player = new Player_details_page_objets();
 	}
 
@@ -66,19 +64,12 @@ public class Test_newplayer_creation extends TestBase {
 		// driver.quit();
 	}
 
-//	@Test
-//	public void newplayercreationtesting() throws AWTException, InterruptedException {
-//
-//		player.createnewplayer();
-//
-//	}
-//
-//	@Test
-//	public void verifyplayerlist() {
-//
-//		player.playerverification();
-//	}
-//
+	@Test(enabled=false)
+	public void verifyplayerlist() {
+
+		player.playerverification();
+	}
+
 //	@AfterMethod
 //	public void afterMethod() {
 ////		driver.quit();

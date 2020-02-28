@@ -17,8 +17,6 @@ public class Test_newmedia_creation extends TestBase {
 	@BeforeMethod
 	public void beforeMethod() throws IOException {
 
-		launchbrowser();
-		loginpage();
 		media=new New_media_page_objects();
 	}
 
@@ -27,10 +25,10 @@ public class Test_newmedia_creation extends TestBase {
 		media.uploadmedia();
 	}
 	
-	@AfterMethod
-	public void afterMethod() {
+//	@AfterMethod
+//	public void afterMethod() {
 //		driver.quit();
-	}
+//	}
 
 
 }

@@ -15,6 +15,7 @@ import base.TestBase;
 
 public class Player_details_page_objets extends TestBase {
 
+// ***************** Player Details ************************ //	
 	@FindBy(xpath = "//a[@href='/dashboard/player-list']")
 	public static WebElement myplayer;
 	@FindBy(xpath = "//button[@type='button']")
@@ -93,17 +94,17 @@ public class Player_details_page_objets extends TestBase {
 
 	@FindBy(xpath = "//div[@id='customer_type_id']")
 	public static WebElement customertypeclick;
-	@FindBy(xpath = "//input[@id='customer_type_id']")
+	@FindBy(xpath = "(//input[@class='ant-input ant-select-search__field'])[2]")
 	public static WebElement customertypeinput;
 
 	@FindBy(xpath = "//button[@type='submit']")
 	public static WebElement submit;
-
-	// -------------------------------------//
+	
+// ************************************************** //
 	public Player_details_page_objets() {
 		PageFactory.initElements(driver, this);
 	}
-	// -------------------------------------//
+// ************************************************** //
 	
 	public void createnewplayer(String uname1, String pwd2, String name3, String status31, String dealername4, String customername5,
 			String locationname6, String contpername7, String contmobnum8, String conteid9, String add110, String add211,
@@ -289,215 +290,20 @@ public class Player_details_page_objets extends TestBase {
 		} else {
 			System.out.println("Your searching customer not in the list");
 		}
-		WebElement opentime = driver.findElement(By.xpath("//input[@id='open_time']"));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].value='10:23 am';", opentime);
-
-		WebElement closetime = driver.findElement(By.xpath("//input[@id='close_time']"));
-		js.executeScript("arguments[0].value='10:19 pm';", closetime);
-
+		
+    	driver.findElement(By.xpath("(//input[@class='ant-time-picker-input'])[1]")).click();
+    	driver.findElement(By.xpath("//input[@class='ant-time-picker-panel-input  ']")).sendKeys("10:23 am");
+    	
+    	driver.findElement(By.xpath("(//input[@class='ant-time-picker-input'])[2]")).click();
+    	Thread.sleep(1000);
+    	driver.findElement(By.xpath("//input[@class='ant-time-picker-panel-input  ']")).sendKeys("10:23 am");
+    	
 //      Player_details_page_objets.submit.click();
 	}
-	
-//***************************************************************************************************************************//	
-//	public static void createnewplayer() throws AWTException, InterruptedException {
-//
-//		newplayer.click();
-//		usernamefield.sendKeys("GopiDist1Play4");
-//		playerpassword.sendKeys("GopiDist1Play4");
-//		locationnamefield.sendKeys("cakes & bakes");
-////		status.click();
-////		statustitle.click();
-//
-//		status.click();
-//		Thread.sleep(1000);
-//		List<WebElement> totalstatus = driver.findElements(By.xpath("(//ul[@role='listbox'])[1]//li"));
-//		System.out.println(totalstatus.size());
-//		List<String> statusnames = new ArrayList<String>();
-//		for (WebElement totalstat : totalstatus) {
-//			statusnames.add(totalstat.getText());
-//		}
-//		System.out.println(statusnames);
-//		if (statusnames.contains("Active")) {
-//			System.out.println("in the list");
-//			statustitle.click();
-//		} else {
-//			System.out.println("Your searching dealer not in the list");
-//		}
-//
-//		
-//		dealerclick.click();
-//		Thread.sleep(1000);
-//		List<WebElement> totaldealer = driver.findElements(By.xpath("(//ul[@role='listbox'])[2]//li"));
-//		System.out.println(totaldealer.size());
-//		List<String> dealernames = new ArrayList<String>();
-//		for (WebElement totaldeal : totaldealer) {
-//			dealernames.add(totaldeal.getText());
-//		}
-//		System.out.println(dealernames);
-//		if (dealernames.contains("Autodealer2")) {
-//			System.out.println("in the list");
-//			dealerinput.sendKeys("Autodealer2", Keys.ENTER);
-//		} else {
-//			System.out.println("Your searching dealer not in the list");
-//		}
-//
-//		customerclick.click();
-//		Thread.sleep(1000);
-//		List<WebElement> totalcustomer = driver.findElements(By.xpath("(//ul[@role='listbox'])[3]//li"));
-//		System.out.println(totalcustomer.size());
-//		List<String> customernames = new ArrayList<String>();
-//		for (WebElement totalcust : totalcustomer) {
-//			customernames.add(totalcust.getText());
-//		}
-//		System.out.println(customernames);
-//		if (customernames.contains("Autocustomer3")) {
-//			System.out.println("in the list");
-//			customerinput.sendKeys("Autocustomer3", Keys.ENTER);
-//		} else {
-//			System.out.println("Your searching customer not in the list");
-//		}
-//
-//		locationclick.click();
-//		Thread.sleep(1000);
-//		List<WebElement> totallocation = driver.findElements(By.xpath("(//ul[@role='listbox'])[4]//li"));
-//		System.out.println(totallocation.size());
-//		List<String> locationnames = new ArrayList<String>();
-//		for (WebElement totallocat : totallocation) {
-//			locationnames.add(totallocat.getText());
-//		}
-//		System.out.println(locationnames);
-//		if (locationnames.contains("Autolocation4")) {
-//			System.out.println("in the list");
-//			locationinput.sendKeys("Autolocation4", Keys.ENTER);
-//		} else {
-//			System.out.println("Your searching customer not in the list");
-//		}
-//
-//		contpername.sendKeys("anbu");
-//		contmobnum.sendKeys("768776877");
-//		contperemail.sendKeys("anbu@gmail.com");
-//		address1.sendKeys("behind singanallur");
-//		address2.sendKeys("behind singanallur");
-//
-//		countryclick.click();
-//		Thread.sleep(1000);
-//		List<WebElement> totalcountry = driver.findElements(By.xpath("(//ul[@role='listbox'])[5]//li"));
-//		System.out.println(totalcountry.size());
-//		List<String> countrynames = new ArrayList<String>();
-//		for (WebElement totalcount : totalcountry) {
-//			countrynames.add(totalcount.getText());
-//		}
-//		System.out.println(countrynames);
-//		if (countrynames.contains("India")) {
-//			System.out.println("in the list");
-//			countryinput.sendKeys("India", Keys.ENTER);
-//		} else {
-//			System.out.println("Your searching customer not in the list");
-//		}
-//
-//		stateclick.click();
-////		stateinput.sendKeys("Tamil Nadu", Keys.ENTER);
-//		Thread.sleep(1000);
-//		List<WebElement> totalstates = driver.findElements(By.xpath("(//ul[@role='listbox'])[6]//li"));
-//		System.out.println(totalstates.size());
-//		List<String> statenames = new ArrayList<String>();
-//		for (WebElement totalstat : totalstates) {
-//			statenames.add(totalstat.getText());
-//		}
-//		System.out.println(statenames);
-//		if (statenames.contains("Tamil Nadu")) {
-//			System.out.println("in the list");
-//			stateinput.sendKeys("Tamil Nadu", Keys.ENTER);
-//		} else {
-//			System.out.println("Your searching customer not in the list");
-//		}
-//
-//		cityclick.click();
-//		Thread.sleep(1000);
-//		List<WebElement> totalcity = driver.findElements(By.xpath("(//ul[@role='listbox'])[7]//li"));
-//		System.out.println(totalcity.size());
-//		List<String> citynames = new ArrayList<String>();
-//		for (WebElement totalcit : totalcity) {
-//			citynames.add(totalcit.getText());
-//		}
-//		System.out.println(citynames);
-//		if (citynames.contains("Chennai")) {
-//			System.out.println("in the list");
-//			cityinput.sendKeys("Chennai", Keys.ENTER);
-//		} else {
-//			System.out.println("Your searching customer not in the list");
-//		}
-//
-//		groupclick.click();
-//		Thread.sleep(1000);
-//		List<WebElement> totalgroups = driver.findElements(By.xpath("(//ul[@role='listbox'])[8]//li"));
-//		System.out.println(totalgroups.size());
-//		List<String> groupnames = new ArrayList<String>();
-//		for (WebElement totalgroup : totalgroups) {
-//			groupnames.add(totalgroup.getText());
-//		}
-//		System.out.println(groupnames);
-//		if (groupnames.contains("Tambaram")) {
-//			System.out.println("in the list");
-//			groupinput.sendKeys("Tambaram", Keys.ENTER);
-//		} else {
-//			System.out.println("Your searching customer not in the list");
-//		}
-//
-//		mapsearch.sendKeys("coimbatore");
-//		Thread.sleep(3000);
-//		keydown();
-//		keyenter();
-//
-//		zipcode.sendKeys("641041");
-//		area.sendKeys("local");
-//		cost.sendKeys("40000000");
-//
-//		tagclick.click();
-//		Thread.sleep(1000);
-//		List<WebElement> totaltags = driver.findElements(By.xpath("(//ul[@role='listbox'])[9]//li"));
-//		System.out.println(totaltags.size());
-//		List<String> tagnames = new ArrayList<String>();
-//		for (WebElement totaltag : totaltags) {
-//			tagnames.add(totaltag.getText());
-//		}
-//		System.out.println(tagnames);
-//		if (tagnames.contains("property")) {
-//			System.out.println("in the list");
-//			taginput.sendKeys("property", Keys.ENTER);
-//		} else {
-//			System.out.println("Your searching customer not in the list");
-//		}
-//
-//		customertypeclick.click();
-//		Thread.sleep(1000);
-//		List<WebElement> totalcustomertypes = driver.findElements(By.xpath("(//ul[@role='listbox'])[10]//li"));
-//		System.out.println(totalcustomertypes.size());
-//		List<String> totalcustomernames = new ArrayList<String>();
-//		for (WebElement totalcustomertype : totalcustomertypes) {
-//			totalcustomernames.add(totalcustomertype.getText());
-//		}
-//		System.out.println(totalcustomernames);
-//		if (totalcustomernames.contains("Beach View")) {
-//			System.out.println("in the list");
-//			customertypeinput.sendKeys("Beach View", Keys.ENTER);
-//		} else {
-//			System.out.println("Your searching customer not in the list");
-//		}
-//		WebElement opentime = driver.findElement(By.xpath("//input[@id='open_time']"));
-//		JavascriptExecutor js = (JavascriptExecutor) driver;
-//		js.executeScript("arguments[0].value='10:23 am';", opentime);
-//
-//		WebElement closetime = driver.findElement(By.xpath("//input[@id='close_time']"));
-//		js.executeScript("arguments[0].value='10:19 pm';", closetime);
-//		
-//			//// //Player_details_page_objets.submit.click();
-//	}
 
-//***************************************************************************************************************************//	
+// *************************************************************************************************************** //	
 	
-	public static void playerverification() {
+	public void playerverification() {
 
 		List<WebElement> totaltablecolumn = driver.findElements(By.xpath("//th[@class='ant-table-align-center']"));
 		System.out.println("Total column: " + totaltablecolumn.size());
@@ -520,10 +326,8 @@ public class Player_details_page_objets extends TestBase {
 		String testplayer="Autoplayer1";
 		if (totalusernames.contains(testplayer)) {
 			System.out.println("In the list");
-			String userpath="//div[text()='"+testplayer+"']/preceding::td";
-			String playername=driver.findElement(By.xpath(userpath)).getText();
-			String clickpath="//a[text()='"+playername+"']";
-			driver.findElement(By.xpath(clickpath)).click();
+			String userpath="//a[text()='"+testplayer+"']";
+			driver.findElement(By.xpath(userpath)).click();
 		} else {
 			System.out.println("Not in the list");
 		}

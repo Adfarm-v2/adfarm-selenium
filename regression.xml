@@ -6,6 +6,7 @@
 	<test name="verifynewplayer">
 		<classes>
 			<class name="testcases.Test_newplayer_creation" />
+			<class name="testcases.Test_newmedia_creation" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->
