@@ -15,6 +15,7 @@ import base.TestBase;
 
 public class Player_details_page_objets extends TestBase {
 
+// ***************** Player Details ************************ //	
 	@FindBy(xpath = "//a[@href='/dashboard/player-list']")
 	public static WebElement myplayer;
 	@FindBy(xpath = "//button[@type='button']")
@@ -25,10 +26,11 @@ public class Player_details_page_objets extends TestBase {
 	public static WebElement playerpassword;
 	@FindBy(xpath = "//input[@name='location_name']")
 	public static WebElement locationnamefield;
+
 	@FindBy(xpath = "//div[@id='status_id']")
-	public static WebElement status;
-	@FindBy(xpath = "(//*[text()='Active'])[1]")
-	public static WebElement statustitle;
+	public static WebElement statusclick;
+	@FindBy(xpath = "//input[@id='status_id']")
+	public static WebElement statusinput;
 
 	@FindBy(xpath = "//div[@id='dealer_id']")
 	public static WebElement dealerclick;
@@ -92,28 +94,46 @@ public class Player_details_page_objets extends TestBase {
 
 	@FindBy(xpath = "//div[@id='customer_type_id']")
 	public static WebElement customertypeclick;
-	@FindBy(xpath = "//input[@id='customer_type_id']")
+	@FindBy(xpath = "(//input[@class='ant-input ant-select-search__field'])[2]")
 	public static WebElement customertypeinput;
 
 	@FindBy(xpath = "//button[@type='submit']")
 	public static WebElement submit;
-
-	// -------------------------------------//
+	
+// ************************************************** //
 	public Player_details_page_objets() {
 		PageFactory.initElements(driver, this);
 	}
-	// -------------------------------------//
-
-	public static void createnewplayer() throws AWTException, InterruptedException {
+// ************************************************** //
+	
+	public void createnewplayer(String uname1, String pwd2, String name3, String status31, String dealername4, String customername5,
+			String locationname6, String contpername7, String contmobnum8, String conteid9, String add110, String add211,
+			String countryname12, String statename13, String cityname14, String groupname15, String zipcode16, String area17,
+			String locationcost18, String tag19, String typeofcustomer20) throws AWTException, InterruptedException {
 
 		newplayer.click();
-		usernamefield.sendKeys("GopiDist1Play4");
-		playerpassword.sendKeys("GopiDist1Play4");
-		locationnamefield.sendKeys("cakes & bakes");
-		status.click();
-		statustitle.click();
+		usernamefield.sendKeys(uname1);
+		playerpassword.sendKeys(pwd2);
+		locationnamefield.sendKeys(name3);
+
+		statusclick.click();
+		Thread.sleep(1000);
+		List<WebElement> totalstatus = driver.findElements(By.xpath("(//ul[@role='listbox'])[1]//li"));
+		System.out.println(totalstatus.size());
+		List<String> statusnames = new ArrayList<String>();
+		for (WebElement totalstat : totalstatus) {
+			statusnames.add(totalstat.getText());
+		}
+		System.out.println(statusnames);
+		if (statusnames.contains(status31)) {
+			System.out.println("in the list");
+			statusinput.sendKeys(status31, Keys.ENTER);
+		} else {
+			System.out.println("Your searching dealer not in the list");
+		}
 
 		dealerclick.click();
+		Thread.sleep(1000);
 		List<WebElement> totaldealer = driver.findElements(By.xpath("(//ul[@role='listbox'])[2]//li"));
 		System.out.println(totaldealer.size());
 		List<String> dealernames = new ArrayList<String>();
@@ -121,14 +141,15 @@ public class Player_details_page_objets extends TestBase {
 			dealernames.add(totaldeal.getText());
 		}
 		System.out.println(dealernames);
-		if (dealernames.contains("Autodealer1")) {
+		if (dealernames.contains(dealername4)) {
 			System.out.println("in the list");
-			dealerinput.sendKeys("Autodealer1", Keys.ENTER);
+			dealerinput.sendKeys(dealername4, Keys.ENTER);
 		} else {
 			System.out.println("Your searching dealer not in the list");
 		}
 
 		customerclick.click();
+		Thread.sleep(1000);
 		List<WebElement> totalcustomer = driver.findElements(By.xpath("(//ul[@role='listbox'])[3]//li"));
 		System.out.println(totalcustomer.size());
 		List<String> customernames = new ArrayList<String>();
@@ -136,14 +157,15 @@ public class Player_details_page_objets extends TestBase {
 			customernames.add(totalcust.getText());
 		}
 		System.out.println(customernames);
-		if (customernames.contains("Autocustomer1")) {
+		if (customernames.contains(customername5)) {
 			System.out.println("in the list");
-			customerinput.sendKeys("Autocustomer1", Keys.ENTER);
+			customerinput.sendKeys(customername5, Keys.ENTER);
 		} else {
 			System.out.println("Your searching customer not in the list");
 		}
 
 		locationclick.click();
+		Thread.sleep(1000);
 		List<WebElement> totallocation = driver.findElements(By.xpath("(//ul[@role='listbox'])[4]//li"));
 		System.out.println(totallocation.size());
 		List<String> locationnames = new ArrayList<String>();
@@ -151,20 +173,21 @@ public class Player_details_page_objets extends TestBase {
 			locationnames.add(totallocat.getText());
 		}
 		System.out.println(locationnames);
-		if (locationnames.contains("Autolocation1")) {
+		if (locationnames.contains(locationname6)) {
 			System.out.println("in the list");
-			locationinput.sendKeys("Autolocation1", Keys.ENTER);
+			locationinput.sendKeys(locationname6, Keys.ENTER);
 		} else {
 			System.out.println("Your searching customer not in the list");
 		}
 
-		contpername.sendKeys("anbu");
-		contmobnum.sendKeys("768776877");
-		contperemail.sendKeys("anbu@gmail.com");
-		address1.sendKeys("behind singanallur");
-		address2.sendKeys("behind singanallur");
+		contpername.sendKeys(contpername7);
+		contmobnum.sendKeys(contmobnum8);
+		contperemail.sendKeys(conteid9);
+		address1.sendKeys(add110);
+		address2.sendKeys(add211);
 
 		countryclick.click();
+		Thread.sleep(1000);
 		List<WebElement> totalcountry = driver.findElements(By.xpath("(//ul[@role='listbox'])[5]//li"));
 		System.out.println(totalcountry.size());
 		List<String> countrynames = new ArrayList<String>();
@@ -172,31 +195,31 @@ public class Player_details_page_objets extends TestBase {
 			countrynames.add(totalcount.getText());
 		}
 		System.out.println(countrynames);
-		if (countrynames.contains("India")) {
+		if (countrynames.contains(countryname12)) {
 			System.out.println("in the list");
-			countryinput.sendKeys("India", Keys.ENTER);
+			countryinput.sendKeys(countryname12, Keys.ENTER);
 		} else {
 			System.out.println("Your searching customer not in the list");
 		}
 
 		stateclick.click();
-		stateinput.sendKeys("Tamil Nadu", Keys.ENTER);
-
-//		List<WebElement> totalstates = driver.findElements(By.xpath("(//ul[@role='listbox'])[6]//li"));
-//		System.out.println(totalstates.size());
-//		List<String> statenames = new ArrayList<String>();
-//		for (WebElement totalstat : totalstates) {
-//			statenames.add(totalstat.getText());
-//		}
-//		System.out.println(statenames);
-//		if (statenames.contains("Tamil Nadu")) {
-//			System.out.println("in the list");
-//			stateinput.sendKeys("Tamil Nadu", Keys.ENTER);
-//		} else {
-//			System.out.println("Your searching customer not in the list");
-//		}
+		Thread.sleep(1000);
+		List<WebElement> totalstates = driver.findElements(By.xpath("(//ul[@role='listbox'])[6]//li"));
+		System.out.println(totalstates.size());
+		List<String> statenames = new ArrayList<String>();
+		for (WebElement totalstat : totalstates) {
+			statenames.add(totalstat.getText());
+		}
+		System.out.println(statenames);
+		if (statenames.contains(statename13)) {
+			System.out.println("in the list");
+			stateinput.sendKeys(statename13, Keys.ENTER);
+		} else {
+			System.out.println("Your searching customer not in the list");
+		}
 
 		cityclick.click();
+		Thread.sleep(1000);
 		List<WebElement> totalcity = driver.findElements(By.xpath("(//ul[@role='listbox'])[7]//li"));
 		System.out.println(totalcity.size());
 		List<String> citynames = new ArrayList<String>();
@@ -204,14 +227,15 @@ public class Player_details_page_objets extends TestBase {
 			citynames.add(totalcit.getText());
 		}
 		System.out.println(citynames);
-		if (citynames.contains("Chennai")) {
+		if (citynames.contains(cityname14)) {
 			System.out.println("in the list");
-			cityinput.sendKeys("Chennai", Keys.ENTER);
+			cityinput.sendKeys(cityname14, Keys.ENTER);
 		} else {
 			System.out.println("Your searching customer not in the list");
 		}
 
 		groupclick.click();
+		Thread.sleep(1000);
 		List<WebElement> totalgroups = driver.findElements(By.xpath("(//ul[@role='listbox'])[8]//li"));
 		System.out.println(totalgroups.size());
 		List<String> groupnames = new ArrayList<String>();
@@ -219,9 +243,9 @@ public class Player_details_page_objets extends TestBase {
 			groupnames.add(totalgroup.getText());
 		}
 		System.out.println(groupnames);
-		if (groupnames.contains("Tambaram")) {
+		if (groupnames.contains(groupname15)) {
 			System.out.println("in the list");
-			groupinput.sendKeys("Tambaram", Keys.ENTER);
+			groupinput.sendKeys(groupname15, Keys.ENTER);
 		} else {
 			System.out.println("Your searching customer not in the list");
 		}
@@ -231,11 +255,12 @@ public class Player_details_page_objets extends TestBase {
 		keydown();
 		keyenter();
 
-		zipcode.sendKeys("641041");
-		area.sendKeys("local");
-		cost.sendKeys("40000000");
+		zipcode.sendKeys(zipcode16);
+		area.sendKeys(area17);
+		cost.sendKeys(locationcost18);
 
 		tagclick.click();
+		Thread.sleep(1000);
 		List<WebElement> totaltags = driver.findElements(By.xpath("(//ul[@role='listbox'])[9]//li"));
 		System.out.println(totaltags.size());
 		List<String> tagnames = new ArrayList<String>();
@@ -243,14 +268,15 @@ public class Player_details_page_objets extends TestBase {
 			tagnames.add(totaltag.getText());
 		}
 		System.out.println(tagnames);
-		if (tagnames.contains("property")) {
+		if (tagnames.contains(tag19)) {
 			System.out.println("in the list");
-			taginput.sendKeys("property", Keys.ENTER);
+			taginput.sendKeys(tag19, Keys.ENTER);
 		} else {
 			System.out.println("Your searching customer not in the list");
 		}
 
 		customertypeclick.click();
+		Thread.sleep(1000);
 		List<WebElement> totalcustomertypes = driver.findElements(By.xpath("(//ul[@role='listbox'])[10]//li"));
 		System.out.println(totalcustomertypes.size());
 		List<String> totalcustomernames = new ArrayList<String>();
@@ -258,24 +284,26 @@ public class Player_details_page_objets extends TestBase {
 			totalcustomernames.add(totalcustomertype.getText());
 		}
 		System.out.println(totalcustomernames);
-		if (totalcustomernames.contains("Beach View")) {
+		if (totalcustomernames.contains(typeofcustomer20)) {
 			System.out.println("in the list");
-			customertypeinput.sendKeys("Beach View", Keys.ENTER);
+			customertypeinput.sendKeys(typeofcustomer20, Keys.ENTER);
 		} else {
 			System.out.println("Your searching customer not in the list");
 		}
-
-		WebElement opentime = driver.findElement(By.xpath("//input[@id='open_time']"));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].value='10:23 am';", opentime);
-
-		WebElement closetime = driver.findElement(By.xpath("//input[@id='close_time']"));
-		js.executeScript("arguments[0].value='10:19 pm';", closetime);
-
-		//// //Player_details_page_objets.submit.click();
+		
+    	driver.findElement(By.xpath("(//input[@class='ant-time-picker-input'])[1]")).click();
+    	driver.findElement(By.xpath("//input[@class='ant-time-picker-panel-input  ']")).sendKeys("10:23 am");
+    	
+    	driver.findElement(By.xpath("(//input[@class='ant-time-picker-input'])[2]")).click();
+    	Thread.sleep(1000);
+    	driver.findElement(By.xpath("//input[@class='ant-time-picker-panel-input  ']")).sendKeys("10:23 am");
+    	
+//      Player_details_page_objets.submit.click();
 	}
+
+// *************************************************************************************************************** //	
 	
-	public static void playerverification() {
+	public void playerverification() {
 
 		List<WebElement> totaltablecolumn = driver.findElements(By.xpath("//th[@class='ant-table-align-center']"));
 		System.out.println("Total column: " + totaltablecolumn.size());
@@ -298,12 +326,11 @@ public class Player_details_page_objets extends TestBase {
 		String testplayer="Autoplayer1";
 		if (totalusernames.contains(testplayer)) {
 			System.out.println("In the list");
-			String userpath="//div[text()='"+testplayer+"']/preceding::td";
-			String playername=driver.findElement(By.xpath(userpath)).getText();
-			String clickpath="//a[text()='"+playername+"']";
-			driver.findElement(By.xpath(clickpath)).click();
+			String userpath="//a[text()='"+testplayer+"']";
+			driver.findElement(By.xpath(userpath)).click();
 		} else {
 			System.out.println("Not in the list");
 		}
 	}
+
 }

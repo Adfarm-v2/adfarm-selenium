@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.BeforeSuite;
 
 import pages.Login_page_objects;
 
@@ -26,19 +27,16 @@ public class TestBase {
 		properties.load(fileinputstream);
 		return properties;
 	}
-
-	public void launchbrowser() throws IOException {
+	
+	@BeforeSuite
+	public void beforestep() throws IOException {
 		loadpropertyfile();
-		String Driverlocation = properties.getProperty("driverlocation");
+		String DriverLocation = properties.getProperty("driverlocation");
 		String Url = properties.getProperty("url");
-		System.setProperty("webdriver.chrome.driver", Driverlocation);
+		System.setProperty("webdriver.chrome.driver", DriverLocation);
 		driver = new ChromeDriver();
 		driver.get(Url);
 		driver.manage().window().maximize();
-	}
-
-	public void loginpage() throws IOException {
-		loadpropertyfile();
 		PageFactory.initElements(driver, Login_page_objects.class);
 		String Username = properties.getProperty("username");
 		String Password = properties.getProperty("password");
@@ -46,6 +44,7 @@ public class TestBase {
 		Login_page_objects.pwd.sendKeys(Password);
 		Login_page_objects.logbtn.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
 	}
 
 	public static void keydown() throws AWTException {
@@ -59,6 +58,7 @@ public class TestBase {
 		robo.keyPress(KeyEvent.VK_ENTER);
 		robo.keyRelease(KeyEvent.VK_ENTER);
 	}
+
 	public static void controlv() throws AWTException {
 		robo = new Robot();
 		robo.keyPress(KeyEvent.VK_CONTROL);
