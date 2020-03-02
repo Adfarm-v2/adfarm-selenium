@@ -24,6 +24,7 @@ public class Test_newplayer_creation extends TestBase {
 	public void beforeMethod() throws IOException {
 
 		player = new Player_details_page_objets();
+		
 	}
 
 	@DataProvider(name = "playerdata")
@@ -34,7 +35,8 @@ public class Test_newplayer_creation extends TestBase {
 
 	public String[][] GetExcelData() throws BiffException, IOException {
 
-		FileInputStream m = new FileInputStream("C:\\Users\\Gopinath\\Desktop\\Exceldata\\ERPTesting.xls");
+		//FileInputStream m = new FileInputStream("C:\\Users\\Gopinath\\Desktop\\Exceldata\\ERPTesting.xls");
+		FileInputStream m = new FileInputStream("C:\\Users\\Jothi\\Desktop\\Adfarm Excel Data\\ERPTesting.xls");
 		Workbook excel = Workbook.getWorkbook(m);
 		Sheet sheet = excel.getSheet("playersheet");
 		int rowcount = sheet.getRows();
@@ -51,23 +53,30 @@ public class Test_newplayer_creation extends TestBase {
 		return testdata;
 	}
 
-	@Test(dataProvider = "playerdata")
+	@Test(dataProvider = "playerdata",enabled=false)
 	public void logincheck(String uname, String pwd, String name, String status, String dealername, String customername,
 			String locationname, String contpername, String contmobnum, String conteid, String add1, String add2,
 			String countryname, String statename, String cityname, String groupname, String zipcode, String area,
-			String locationcost, String tag, String typeofcustomer) throws AWTException, InterruptedException {
+			String locationcost, String tag, String typeofcustomer, String opentime, String closetime) throws AWTException, InterruptedException {
 
 		player.createnewplayer(uname, pwd, name, status, dealername, customername, locationname, contpername, contmobnum,
 				conteid, add1, add2, countryname, statename, cityname, groupname, zipcode, area, locationcost, tag,
-				typeofcustomer);
+				typeofcustomer, opentime, closetime);
 
 		// driver.quit();
 	}
 
-	@Test(enabled=false)
+	@Test(priority=1)
 	public void verifyplayerlist() {
 
 		player.playerverification();
+	}
+	
+	@Test(priority=2)
+	public void verifymanageplayer() throws InterruptedException {
+	
+		player.manageplayer();
+		
 	}
 
 //	@AfterMethod

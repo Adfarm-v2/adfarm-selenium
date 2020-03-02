@@ -1,13 +1,15 @@
 package pages;
 
 import java.awt.AWTException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -16,6 +18,7 @@ import base.TestBase;
 public class Player_details_page_objets extends TestBase {
 
 // ***************** Player Details ************************ //	
+
 	@FindBy(xpath = "//a[@href='/dashboard/player-list']")
 	public static WebElement myplayer;
 	@FindBy(xpath = "//button[@type='button']")
@@ -99,22 +102,24 @@ public class Player_details_page_objets extends TestBase {
 
 	@FindBy(xpath = "//button[@type='submit']")
 	public static WebElement submit;
-	
-// ************************************************** //
+
+// ******************************************************************************************************************************** //	
 	public Player_details_page_objets() {
 		PageFactory.initElements(driver, this);
 	}
-// ************************************************** //
-	
-	public void createnewplayer(String uname1, String pwd2, String name3, String status31, String dealername4, String customername5,
-			String locationname6, String contpername7, String contmobnum8, String conteid9, String add110, String add211,
-			String countryname12, String statename13, String cityname14, String groupname15, String zipcode16, String area17,
-			String locationcost18, String tag19, String typeofcustomer20) throws AWTException, InterruptedException {
+// ******************************************************************************************************************************** //	
 
+	public void createnewplayer(String uname1, String pwd2, String name3, String status31, String dealername4,
+			String customername5, String locationname6, String contpername7, String contmobnum8, String conteid9,
+			String add110, String add211, String countryname12, String statename13, String cityname14,
+			String groupname15, String zipcode16, String area17, String locationcost18, String tag19,
+			String typeofcustomer20, String opt, String clt) throws AWTException, InterruptedException {
+
+		String unicname = new SimpleDateFormat("mmss").format(new Date());
 		newplayer.click();
-		usernamefield.sendKeys(uname1);
-		playerpassword.sendKeys(pwd2);
-		locationnamefield.sendKeys(name3);
+		usernamefield.sendKeys(uname1 + unicname);
+		playerpassword.sendKeys(pwd2 + unicname);
+		locationnamefield.sendKeys(name3 + unicname);
 
 		statusclick.click();
 		Thread.sleep(1000);
@@ -290,19 +295,19 @@ public class Player_details_page_objets extends TestBase {
 		} else {
 			System.out.println("Your searching customer not in the list");
 		}
-		
-    	driver.findElement(By.xpath("(//input[@class='ant-time-picker-input'])[1]")).click();
-    	driver.findElement(By.xpath("//input[@class='ant-time-picker-panel-input  ']")).sendKeys("10:23 am");
-    	
-    	driver.findElement(By.xpath("(//input[@class='ant-time-picker-input'])[2]")).click();
-    	Thread.sleep(1000);
-    	driver.findElement(By.xpath("//input[@class='ant-time-picker-panel-input  ']")).sendKeys("10:23 am");
-    	
+
+		driver.findElement(By.xpath("(//input[@class='ant-time-picker-input'])[1]")).click();
+		driver.findElement(By.xpath("//input[@class='ant-time-picker-panel-input  ']")).sendKeys(opt);
+
+		driver.findElement(By.xpath("(//input[@class='ant-time-picker-input'])[2]")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//input[@class='ant-time-picker-panel-input  ']")).sendKeys(clt);
+
 //      Player_details_page_objets.submit.click();
 	}
 
-// *************************************************************************************************************** //	
-	
+// ******************************************************************************************************************************** //	
+
 	public void playerverification() {
 
 		List<WebElement> totaltablecolumn = driver.findElements(By.xpath("//th[@class='ant-table-align-center']"));
@@ -323,14 +328,46 @@ public class Player_details_page_objets extends TestBase {
 			totalusernames.add(totalusername.getText());
 		}
 		System.out.println(totalusernames);
-		String testplayer="Autoplayer1";
+		String testplayer = "Autoplayer1";
 		if (totalusernames.contains(testplayer)) {
 			System.out.println("In the list");
-			String userpath="//a[text()='"+testplayer+"']";
+			String userpath = "//span[text()='" + testplayer + "']";
 			driver.findElement(By.xpath(userpath)).click();
 		} else {
 			System.out.println("Not in the list");
 		}
+	}
+
+// ******************************************************************************************************************************** //	
+
+	public void manageplayer() throws InterruptedException {
+
+		driver.findElement(By.xpath("//i[@class='anticon anticon-sliders']")).click();
+
+		List<WebElement> totallayouttypes = driver
+				.findElements(By.xpath("(//tbody[@class='ant-table-tbody'])[1]/tr/td"));
+		System.out.println("Total Layout Count: " + totallayouttypes.size());
+
+		List<String> totallayoutnames = new ArrayList<String>();
+		for (WebElement totallayouttype : totallayouttypes) {
+			totallayoutnames.add(totallayouttype.getText());
+		}
+		System.out.println(totallayoutnames);
+
+		action = new Actions(driver);
+
+		String layoutname = "Automate Fullscreen Layout1";
+		if (totallayoutnames.contains(layoutname)) {
+			System.out.println("in the list");
+			String sourcepath = "//div[text()='" + layoutname + "']";
+			System.out.println(sourcepath);
+			WebElement source = driver.findElement(By.xpath(sourcepath));
+			WebElement target = driver.findElement(By.xpath("//div[@class='content_table___4lVRe']"));
+			action.dragAndDrop(source, target).perform();
+		} else {
+			System.out.println("Your searching layout not in the list");
+		}
+
 	}
 
 }

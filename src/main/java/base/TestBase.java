@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.BeforeSuite;
 
@@ -20,6 +21,7 @@ public class TestBase {
 	public static WebDriver driver;
 	public static Robot robo;
 	public static Properties properties = null;
+	public static Actions action;
 
 	public Properties loadpropertyfile() throws IOException {
 		FileInputStream fileinputstream = new FileInputStream("config.properties");
@@ -27,7 +29,7 @@ public class TestBase {
 		properties.load(fileinputstream);
 		return properties;
 	}
-	
+
 	@BeforeSuite
 	public void beforestep() throws IOException {
 		loadpropertyfile();
