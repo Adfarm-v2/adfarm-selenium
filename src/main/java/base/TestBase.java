@@ -33,9 +33,10 @@ public class TestBase {
 	@BeforeSuite
 	public void beforestep() throws IOException {
 		loadpropertyfile();
-		String DriverLocation = properties.getProperty("driverlocation");
 		String Url = properties.getProperty("url");
-		System.setProperty("webdriver.chrome.driver", DriverLocation);
+		String prop = System.getProperty("user.dir")+"\\Drivers\\chromedriver.exe";
+		System.out.println(prop);
+		System.setProperty("webdriver.chrome.driver", prop);
 		driver = new ChromeDriver();
 		driver.get(Url);
 		driver.manage().window().maximize();

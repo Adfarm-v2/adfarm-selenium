@@ -332,6 +332,7 @@ public class Player_details_page_objets extends TestBase {
 		if (totalusernames.contains(testplayer)) {
 			System.out.println("In the list");
 			String userpath = "//span[text()='" + testplayer + "']";
+			System.out.println(userpath);
 			driver.findElement(By.xpath(userpath)).click();
 		} else {
 			System.out.println("Not in the list");
@@ -368,6 +369,8 @@ public class Player_details_page_objets extends TestBase {
 			System.out.println("Your searching layout not in the list");
 		}
 
+		String msg=driver.findElement(By.xpath("//div[@class='ant-message']/span")).getText();
+		System.out.println(msg);
 	}
 
 }

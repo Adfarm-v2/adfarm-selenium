@@ -34,9 +34,11 @@ public class Test_newplayer_creation extends TestBase {
 	}
 
 	public String[][] GetExcelData() throws BiffException, IOException {
-
+		
+		String excelpath = System.getProperty("user.dir")+"\\ExcelData\\excel.xls";
+		System.out.println(excelpath);
 		//FileInputStream m = new FileInputStream("C:\\Users\\Gopinath\\Desktop\\Exceldata\\ERPTesting.xls");
-		FileInputStream m = new FileInputStream("C:\\Users\\Jothi\\Desktop\\Adfarm Excel Data\\ERPTesting.xls");
+		FileInputStream m = new FileInputStream(excelpath);
 		Workbook excel = Workbook.getWorkbook(m);
 		Sheet sheet = excel.getSheet("playersheet");
 		int rowcount = sheet.getRows();
@@ -53,7 +55,7 @@ public class Test_newplayer_creation extends TestBase {
 		return testdata;
 	}
 
-	@Test(dataProvider = "playerdata",enabled=false)
+	@Test(dataProvider = "playerdata")
 	public void logincheck(String uname, String pwd, String name, String status, String dealername, String customername,
 			String locationname, String contpername, String contmobnum, String conteid, String add1, String add2,
 			String countryname, String statename, String cityname, String groupname, String zipcode, String area,
@@ -66,13 +68,13 @@ public class Test_newplayer_creation extends TestBase {
 		// driver.quit();
 	}
 
-	@Test(priority=1)
+	@Test(priority=1,enabled=false)
 	public void verifyplayerlist() {
 
 		player.playerverification();
 	}
 	
-	@Test(priority=2)
+	@Test(priority=2,enabled=false)
 	public void verifymanageplayer() throws InterruptedException {
 	
 		player.manageplayer();
