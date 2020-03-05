@@ -14,6 +14,9 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.BeforeSuite;
 
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+
 import pages.Login_page_objects;
 
 public class TestBase {
@@ -22,6 +25,9 @@ public class TestBase {
 	public static Robot robo;
 	public static Properties properties = null;
 	public static Actions action;
+	public static ExtentReports reports;
+	public static ExtentTest test;
+	public String excelpath = System.getProperty("user.dir") + "\\ExcelData\\excel.xls";
 
 	public Properties loadpropertyfile() throws IOException {
 		FileInputStream fileinputstream = new FileInputStream("config.properties");
@@ -31,11 +37,10 @@ public class TestBase {
 	}
 
 	@BeforeSuite
-	public void beforestep() throws IOException {
+	public void beforesuite() throws IOException {
 		loadpropertyfile();
 		String Url = properties.getProperty("url");
-		String prop = System.getProperty("user.dir")+"\\Drivers\\chromedriver.exe";
-		System.out.println(prop);
+		String prop = System.getProperty("user.dir") + "\\Drivers\\chromedriver.exe";
 		System.setProperty("webdriver.chrome.driver", prop);
 		driver = new ChromeDriver();
 		driver.get(Url);
@@ -47,7 +52,7 @@ public class TestBase {
 		Login_page_objects.pwd.sendKeys(Password);
 		Login_page_objects.logbtn.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		
+
 	}
 
 	public static void keydown() throws AWTException {

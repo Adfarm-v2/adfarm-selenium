@@ -5,14 +5,14 @@
 	<listeners>
 		<listener class-name="extendreport.Extend"></listener>
 	</listeners>
-	
-	
+
+
 	<test name="Test">
-	
+
 		<classes>
-			<class name="testcases.Test_newplayer_creation">
+			<class name="testcases.Test_Myplayers">
 			</class>
 		</classes>
-		
+
 	</test> <!-- Test -->
 </suite> <!-- Suite -->
