@@ -13,7 +13,7 @@ import jxl.Workbook;
 import jxl.read.biff.BiffException;
 import pages.Login_page_objects;
 
-public class Test_Logintest extends TestBase {
+public class Test_Login extends TestBase {
 
 	public static Login_page_objects Ddpage;
 
@@ -21,8 +21,6 @@ public class Test_Logintest extends TestBase {
 
 	@BeforeMethod
 	public void before() throws IOException {
-
-		launchbrowser();
 		Ddpage = new Login_page_objects();
 	}
 
@@ -34,7 +32,7 @@ public class Test_Logintest extends TestBase {
 
 	public String[][] GetExcelData() throws BiffException, IOException {
 
-		FileInputStream m = new FileInputStream("C:\\Users\\YSelvaraj\\Desktop\\ad-excel\\ERPTesting.xls");
+		FileInputStream m = new FileInputStream(excelpath);
 		Workbook excel = Workbook.getWorkbook(m);
 		Sheet sheet = excel.getSheet("loginsheet");
 		int rowcount = sheet.getRows();
@@ -53,9 +51,7 @@ public class Test_Logintest extends TestBase {
 
 	@Test(dataProvider = "logindata")
 	public void logincheck(String uname, String pwd) {
-
 		Ddpage.logincheck(uname, pwd);
-
 		// driver.quit();
 	}
 

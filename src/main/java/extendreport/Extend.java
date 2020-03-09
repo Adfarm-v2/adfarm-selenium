@@ -13,29 +13,25 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 
 import com.relevantcodes.extentreports.ExtentReports;
-import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import base.TestBase;
 
 public class Extend extends TestBase implements ITestListener {
 
-	protected static ExtentReports reports;
-	protected static ExtentTest test;
-
 	// @Override
 	public void onTestStart(ITestResult result) {
 		System.out.println("Start Test");
 		
 		test = reports.startTest(result.getMethod().getMethodName());
-		test.log(LogStatus.INFO, result.getMethod().getMethodName() + " TEST IS STARDED");
+		test.log(LogStatus.INFO, result.getMethod().getMethodName() + " STARDED");
 	}
 
 	// @Override
 	public void onTestSuccess(ITestResult result) {
 		System.out.println("Test Success");
 		
-		test.log(LogStatus.PASS, result.getMethod().getMethodName() + " TEST IS SUCCESSED ");
+		test.log(LogStatus.PASS, result.getMethod().getMethodName() + " SUCCESSED ");
 
 	}
 
@@ -64,6 +60,7 @@ public class Extend extends TestBase implements ITestListener {
 		System.out.println("Test Skipped");
 		
 		test.log(LogStatus.SKIP, result.getMethod().getMethodName() + " TEST IS SKIPPED");
+		
 	}
 
 	// @Override

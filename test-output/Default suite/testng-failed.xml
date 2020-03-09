@@ -3,13 +3,27 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
+<<<<<<< HEAD
       <class name="testcases.Test_newmedia_creation">
+=======
+      <class name="testcases.Test_newplayer_creation">
+>>>>>>> refs/remotes/origin/development
         <methods>
+<<<<<<< HEAD
           <include name="beforeMethod"/>
           <include name="afterMethod"/>
           <include name="newmediacreation"/>
+=======
+          <include name="beforestep"/>
+          <include name="beforeMethod"/>
+          <include name="verifyplayerlist"/>
+>>>>>>> refs/remotes/origin/development
         </methods>
+<<<<<<< HEAD
       </class> <!-- testcases.Test_newmedia_creation -->
+=======
+      </class> <!-- testcases.Test_newplayer_creation -->
+>>>>>>> refs/remotes/origin/development
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

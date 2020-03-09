@@ -10,8 +10,12 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.BeforeSuite;
+
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
 
 import pages.Login_page_objects;
 
@@ -20,6 +24,10 @@ public class TestBase {
 	public static WebDriver driver;
 	public static Robot robo;
 	public static Properties properties = null;
+	public static Actions action;
+	public static ExtentReports reports;
+	public static ExtentTest test;
+	public String excelpath = System.getProperty("user.dir") + "\\ExcelData\\excel.xls";
 
 	public Properties loadpropertyfile() throws IOException {
 		FileInputStream fileinputstream = new FileInputStream("config.properties");
@@ -29,18 +37,15 @@ public class TestBase {
 		return properties;
 	}
 
-	public void launchbrowser() throws IOException {
+	@BeforeSuite
+	public void beforesuite() throws IOException {
 		loadpropertyfile();
-		String DriverLocation = properties.getProperty("driverlocation");
 		String Url = properties.getProperty("url");
-		System.setProperty("webdriver.chrome.driver", DriverLocation);
+		String prop = System.getProperty("user.dir") + "\\Drivers\\chromedriver.exe";
+		System.setProperty("webdriver.chrome.driver", prop);
 		driver = new ChromeDriver();
 		driver.get(Url);
 		driver.manage().window().maximize();
-	}
-
-	public void loginpage() throws IOException {
-		loadpropertyfile();
 		PageFactory.initElements(driver, Login_page_objects.class);
 		String Username = properties.getProperty("username");
 		String Password = properties.getProperty("password");
@@ -48,6 +53,7 @@ public class TestBase {
 		Login_page_objects.pwd.sendKeys(Password);
 		Login_page_objects.logbtn.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
 	}
 
 	public static void keydown() throws AWTException {
