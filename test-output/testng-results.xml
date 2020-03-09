@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="1" total="2" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="12127" started-at="2020-02-17T13:59:08Z" finished-at="2020-02-17T13:59:20Z">
+  <suite name="Default suite" duration-ms="72332" started-at="2020-03-09T07:12:54Z" finished-at="2020-03-09T07:14:06Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="12127" started-at="2020-02-17T13:59:08Z" finished-at="2020-02-17T13:59:20Z">
-      <class name="testcases.Test_newplayer_creation">
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testcases.Test_newplayer_creation@77cd7a0]" name="beforeMethod" is-config="true" duration-ms="10700" started-at="2020-02-17T13:59:08Z" finished-at="2020-02-17T13:59:19Z">
+    <test name="Default test" duration-ms="72332" started-at="2020-03-09T07:12:54Z" finished-at="2020-03-09T07:14:06Z">
+      <class name="testcases.Test_newmedia_creation">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testcases.Test_newmedia_creation@77cd7a0]" name="beforeMethod" is-config="true" duration-ms="11619" started-at="2020-03-09T07:12:54Z" finished-at="2020-03-09T07:13:05Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="verifyplayerlist()[pri:0, instance:testcases.Test_newplayer_creation@77cd7a0]" name="verifyplayerlist" duration-ms="1393" started-at="2020-02-17T13:59:19Z" finished-at="2020-02-17T13:59:20Z">
+        <test-method status="PASS" signature="newmediacreation()[pri:0, instance:testcases.Test_newmedia_creation@77cd7a0]" name="newmediacreation" duration-ms="60683" started-at="2020-03-09T07:13:05Z" finished-at="2020-03-09T07:14:06Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyplayerlist -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testcases.Test_newplayer_creation@77cd7a0]" name="afterMethod" is-config="true" duration-ms="1" started-at="2020-02-17T13:59:20Z" finished-at="2020-02-17T13:59:20Z">
+        </test-method> <!-- newmediacreation -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testcases.Test_newmedia_creation@77cd7a0]" name="afterMethod" is-config="true" duration-ms="0" started-at="2020-03-09T07:14:06Z" finished-at="2020-03-09T07:14:06Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-      </class> <!-- testcases.Test_newplayer_creation -->
+      </class> <!-- testcases.Test_newmedia_creation -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

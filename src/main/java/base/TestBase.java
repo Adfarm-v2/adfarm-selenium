@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import pages.Login_page_objects;
 
@@ -22,6 +23,7 @@ public class TestBase {
 
 	public Properties loadpropertyfile() throws IOException {
 		FileInputStream fileinputstream = new FileInputStream("config.properties");
+		
 		properties = new Properties();
 		properties.load(fileinputstream);
 		return properties;
