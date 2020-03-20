@@ -6,13 +6,13 @@
   </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="testcases.Test_newplayer_creation">
+      <class name="testcases.Test_Myplayers">
         <methods>
           <include name="Createplayer" invocation-numbers="0"/>
-          <include name="beforestep"/>
           <include name="beforeMethod"/>
+          <include name="beforesuite"/>
         </methods>
-      </class> <!-- testcases.Test_newplayer_creation -->
+      </class> <!-- testcases.Test_Myplayers -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

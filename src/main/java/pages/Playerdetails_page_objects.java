@@ -24,16 +24,16 @@ public class Playerdetails_page_objects extends TestBase {
 	public static WebElement myplayer;
 	@FindBy(xpath = "//button[@type='button']")
 	public static WebElement newplayer;
-	@FindBy(xpath = "//input[@name='username']")
+	@FindBy(xpath = "//input[@id='playerDetails[username]']")
 	public static WebElement usernamefield;
-	@FindBy(xpath = "//input[@name='password']")
+	@FindBy(xpath = "//input[@id='playerDetails[password]']")
 	public static WebElement playerpassword;
-	@FindBy(xpath = "//input[@name='location_name']")
+	@FindBy(xpath = "//input[@id='playerDetails[location_name]']")
 	public static WebElement locationnamefield;
 
-	@FindBy(xpath = "//div[@id='status_id']")
+	@FindBy(xpath = "//div[@id='playerDetails[status_id]']")
 	public static WebElement statusclick;
-	@FindBy(xpath = "//input[@id='status_id']")
+	@FindBy(xpath = "//input[@id='playerDetails[status_id]']")
 	public static WebElement statusinput;
 
 	@FindBy(xpath = "//div[@id='distributor_id']")
@@ -51,57 +51,57 @@ public class Playerdetails_page_objects extends TestBase {
 	@FindBy(xpath = "//input[@id='customer_id']")
 	public static WebElement customerinput;
 
-	@FindBy(xpath = "//div[@id='location_id']")
+	@FindBy(xpath = "//div[@id='playerDetails[parent_user_id]']")
 	public static WebElement locationclick;
-	@FindBy(xpath = "//input[@id='location_id']")
+	@FindBy(xpath = "//input[@id='playerDetails[parent_user_id]']")
 	public static WebElement locationinput;
 
-	@FindBy(xpath = "//input[@name='contact_person_name']")
+	@FindBy(xpath = "//input[@id='playerDetails[contact_person_name]']")
 	public static WebElement contpername;
-	@FindBy(xpath = "//input[@name='contact_phone_number']")
+	@FindBy(xpath = "//input[@id='playerDetails[contact_phone_number]']")
 	public static WebElement contmobnum;
-	@FindBy(xpath = "//input[@name='contact_email_id']")
+	@FindBy(xpath = "//input[@id='playerDetails[contact_email_id]']")
 	public static WebElement contperemail;
-	@FindBy(xpath = "//input[@name='address1']")
+	@FindBy(xpath = "//input[@id='playerDetails[address1]']")
 	public static WebElement address1;
-	@FindBy(xpath = "//input[@name='address2']")
+	@FindBy(xpath = "//input[@id='playerDetails[address2]']")
 	public static WebElement address2;
 
-	@FindBy(xpath = "//div[@id='country']")
+	@FindBy(xpath = "//div[@id='playerDetails[country_id]']")
 	public static WebElement countryclick;
-	@FindBy(xpath = "//input[@id='country']")
+	@FindBy(xpath = "//input[@id='playerDetails[country_id]']")
 	public static WebElement countryinput;
 
-	@FindBy(xpath = "//div[@id='state']")
+	@FindBy(xpath = "//div[@id='playerDetails[state_id]']")
 	public static WebElement stateclick;
-	@FindBy(xpath = "//input[@id='state']")
+	@FindBy(xpath = "//input[@id='playerDetails[state_id]']")
 	public static WebElement stateinput;
 
-	@FindBy(xpath = "//div[@id='city_id']")
+	@FindBy(xpath = "//div[@id='playerDetails[city_id]']")
 	public static WebElement cityclick;
 	@FindBy(xpath = "//input[@class='ant-input ant-select-search__field']")
 	public static WebElement cityinput;
 
-	@FindBy(xpath = "//div[@id='cluster_id']")
+	@FindBy(xpath = "//div[@id='playerDetails[cluster_id]']")
 	public static WebElement groupclick;
-	@FindBy(xpath = "//input[@id='cluster_id']")
+	@FindBy(xpath = "//input[@id='playerDetails[cluster_id]']")
 	public static WebElement groupinput;
 
-	@FindBy(xpath = "//input[@class='ant-input map_search___2XfyP']")
+	@FindBy(xpath = "//input[@placeholder='Search Places ...']")
 	public static WebElement mapsearch;
-	@FindBy(xpath = "//input[@name='zipcode']")
+	@FindBy(xpath = "//input[@id='playerDetails[zipcode]']")
 	public static WebElement zipcode;
-	@FindBy(xpath = "//input[@name='area']")
+	@FindBy(xpath = "//input[@id='playerDetails[area]']")
 	public static WebElement area;
-	@FindBy(xpath = "//input[@name='cost']")
+	@FindBy(xpath = "//input[@id='playerDetails[cost]']")
 	public static WebElement cost;
 
-	@FindBy(xpath = "//div[@id='tag_id']")
+	@FindBy(xpath = "//div[@id='playerDetails[tag_id]']")
 	public static WebElement tagclick;
-	@FindBy(xpath = "//input[@id='tag_id']")
+	@FindBy(xpath = "//input[@id='playerDetails[tag_id]']")
 	public static WebElement taginput;
 
-	@FindBy(xpath = "//div[@id='customer_type_id']")
+	@FindBy(xpath = "//div[@id='playerDetails[customer_type_id]']")
 	public static WebElement customertypeclick;
 	@FindBy(xpath = "(//input[@class='ant-input ant-select-search__field'])[2]")
 	public static WebElement customertypeinput;
@@ -124,6 +124,8 @@ public class Playerdetails_page_objects extends TestBase {
 			String typeofcustomer20, String opt, String clt) throws AWTException, InterruptedException {
 
 		String unicname = new SimpleDateFormat("mmss").format(new Date());
+		String UName=uname1+unicname;
+		String PWD=pwd2+unicname;
 
 		try {
 			newplayer.click();
@@ -133,14 +135,14 @@ public class Playerdetails_page_objects extends TestBase {
 		}
 
 		try {
-			usernamefield.sendKeys(uname1 + unicname);
+			usernamefield.sendKeys(UName);
 		} catch (Exception e) {
 			e.printStackTrace();
 			test.log(LogStatus.ERROR, "Issue in User Name Field");
 		}
 
 		try {
-			playerpassword.sendKeys(pwd2 + unicname);
+			playerpassword.sendKeys(PWD);
 		} catch (Exception e) {
 			e.printStackTrace();
 			test.log(LogStatus.ERROR, "Issue in Password Field");
@@ -157,12 +159,10 @@ public class Playerdetails_page_objects extends TestBase {
 			statusclick.click();
 			Thread.sleep(1000);
 			List<WebElement> totalstatus = driver.findElements(By.xpath("(//ul[@role='listbox'])[1]//li"));
-			System.out.println(totalstatus.size());
 			List<String> statusnames = new ArrayList<String>();
 			for (WebElement totalstat : totalstatus) {
 				statusnames.add(totalstat.getText());
 			}
-			System.out.println(statusnames);
 			if (statusnames.contains(status31)) {
 				System.out.println("In the list");
 				statusinput.sendKeys(status31, Keys.ENTER);
@@ -183,7 +183,6 @@ public class Playerdetails_page_objects extends TestBase {
 			distclick.click();
 			Thread.sleep(1000);
 			List<WebElement> totaldists = driver.findElements(By.xpath("(//ul[@role='listbox'])[2]//li"));
-			System.out.println(totaldists.size());
 			List<String> distnames = new ArrayList<String>();
 			for (WebElement totaldist : totaldists) {
 				distnames.add(totaldist.getText());
@@ -459,30 +458,29 @@ public class Playerdetails_page_objects extends TestBase {
 			test.log(LogStatus.ERROR, "Issue in Save Player Button");
 		}
 
-		List<WebElement> usernamecolumns = driver
-				.findElements(By.xpath("//tr[@class='ant-table-row ant-table-row-level-0']//td[2]"));
-		System.out.println("Total usernamecell: " + usernamecolumns.size());
+		List<WebElement> totalpagination = driver
+				.findElements(By.xpath("//li[starts-with(@class,'ant-pagination-item ant-pagination-item-')]"));
 
-		List<String> totalusernames = new ArrayList<String>();
-		for (WebElement totalusername : usernamecolumns) {
-			totalusernames.add(totalusername.getText());
+		System.out.println("Total pagination: " + totalpagination.size());
+
+		List<String> names = new ArrayList<String>();
+
+		for (int i = 1; i <= totalpagination.size(); i++) {
+			String paginationselector = "//li[starts-with(@class,'ant-pagination-item ant-pagination-item-" + i + "')]";
+			System.out.println(paginationselector);
+			driver.findElement(By.xpath(paginationselector)).click();
+			List<WebElement> usernamecolumns = driver
+					.findElements(By.xpath("//tr[@class='ant-table-row ant-table-row-level-0']//td[2]"));
+			for (WebElement totalusername : usernamecolumns) {
+				names.add(totalusername.getText());
+			}
 		}
-		System.out.println(totalusernames);
-		String testplayer = "Autoplayer1";
-		if (totalusernames.contains(testplayer)) {
-			test.log(LogStatus.ERROR, "Player Created Successfully");
+		System.out.println(names);
+		if (names.contains(UName)) {
+			System.out.println("New PLayer Created Successfully!");
 		} else {
-			test.log(LogStatus.ERROR, "Player Not Created");
+			System.out.println("Have some issues Player not Created");
 		}
-
-//		try {
-//			boolean tttt = driver.findElement(By.xpath("//*[text()='Player Created Successfully']")).isDisplayed();
-//			System.out.println(tttt);
-//			String tt = Boolean.toString(tttt);
-//			test.log(LogStatus.PASS, tt);
-//		} catch (Throwable t) {
-//			test.log(LogStatus.ERROR, "Issue in pop-up");
-//		}
 	}
 
 	// ********************************************************************************************************************************
@@ -544,17 +542,32 @@ public class Playerdetails_page_objects extends TestBase {
 
 	public void playerdetails() {
 
-		List<WebElement> totaltablecolumn = driver.findElements(By.xpath("//th[@class='ant-table-align-center']"));
-		System.out.println("Total column: " + totaltablecolumn.size());
+//		List<WebElement> totaltablecolumn = driver.findElements(By.xpath("//th[@class='ant-table-align-center']"));
+//		System.out.println("Total column: " + totaltablecolumn.size());
+//
+//		List<WebElement> totalrow = driver.findElements(By.xpath("//tr[@class='ant-table-row ant-table-row-level-0']"));
+//		System.out.println("Total row: " + totalrow.size());
+//
+//		List<WebElement> totalcell = driver.findElements(By.xpath("//tbody[@class='ant-table-tbody']//tr//td"));
+//		System.out.println("Total cell: " + totalcell.size());
+//
+//		List<WebElement> usernamecolumns = driver
+//				.findElements(By.xpath("//tr[@class='ant-table-row ant-table-row-level-0']//td[2]"));
+//		System.out.println("Total usernamecell: " + usernamecolumns.size());
+		
+		List<WebElement> totalpagination = driver.findElements(By.xpath("//li[starts-with(@class,'ant-pagination-item ant-pagination-item-')]"));
 
-		List<WebElement> totalrow = driver.findElements(By.xpath("//tr[@class='ant-table-row ant-table-row-level-0']"));
-		System.out.println("Total row: " + totalrow.size());
-
-		List<WebElement> totalcell = driver.findElements(By.xpath("//tbody[@class='ant-table-tbody']//tr//td"));
-		System.out.println("Total cell: " + totalcell.size());
-
-		List<WebElement> usernamecolumns = driver
-				.findElements(By.xpath("//tr[@class='ant-table-row ant-table-row-level-0']//td[2]"));
-		System.out.println("Total usernamecell: " + usernamecolumns.size());
+		System.out.println("Total pagination: " + totalpagination.size());
+		
+		List<String> names=new ArrayList<String>();
+		
+		for(int i=1; i<=totalpagination.size();i++) {
+			
+		}
+		
+		//li[starts-with(@class,'ant-pagination-item ant-pagination-item-')]
+		
+		
+		
 	}
 }
