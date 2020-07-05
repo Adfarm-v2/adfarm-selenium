@@ -13,6 +13,9 @@ public class Login_page_objects extends TestBase{
 
 	@FindBy(id = "password")
 	public static WebElement pwd;
+	
+	@FindBy(xpath = "//input[@id='captcha']")
+	public static WebElement inputcaptcha;
 
 	@FindBy(xpath = "//button[@type='submit']")
 	public static WebElement logbtn;

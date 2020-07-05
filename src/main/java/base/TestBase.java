@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -24,7 +25,7 @@ public class TestBase {
 	public static WebDriver driver;
 	public static Robot robo;
 	public static Properties properties = null;
-	public static Actions action;
+	public static Actions act;
 	public static ExtentReports reports;
 	public static ExtentTest test;
 	public String excelpath = System.getProperty("user.dir") + "\\ExcelData\\excel.xls";
@@ -40,7 +41,7 @@ public class TestBase {
 	public void beforesuite() throws IOException {
 		loadpropertyfile();
 		String Url = properties.getProperty("url");
-		String prop = System.getProperty("user.dir") + "\\Drivers\\chromedriver.exe";
+		String prop = System.getProperty("user.dir") + "\\Drivers\\chromedriver2.exe";
 		System.setProperty("webdriver.chrome.driver", prop);
 		driver = new ChromeDriver();
 		driver.get(Url);
@@ -50,6 +51,8 @@ public class TestBase {
 		String Password = properties.getProperty("password");
 		Login_page_objects.uname.sendKeys(Username);
 		Login_page_objects.pwd.sendKeys(Password);
+		String captchanumber=driver.findElement(By.xpath("//input[starts-with(@value,' ')]")).getAttribute("value");
+		driver.findElement(By.xpath("//input[@id='captcha']")).sendKeys(captchanumber);
 		Login_page_objects.logbtn.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 

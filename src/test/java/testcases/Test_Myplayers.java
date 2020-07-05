@@ -56,13 +56,13 @@ public class Test_Myplayers extends TestBase {
 	}
 
 	@Test(dataProvider = "playerdata")
-	public void Createplayer(String uname, String pwd, String name, String status, String distname, String dealername,
+	public void Createplayer(String name, String uname, String pwd, String status, String distname, String dealername,
 			String customername, String locationname, String contpername, String contmobnum, String conteid,
 			String add1, String add2, String countryname, String statename, String cityname, String groupname,
 			String zipcode, String area, String locationcost, String tag, String typeofcustomer, String opentime,
 			String closetime) throws AWTException, InterruptedException {
 
-		player.createplayer(uname, pwd, name, status, distname, dealername, customername, locationname, contpername,
+		player.createplayer(name, uname, pwd, status, distname, dealername, customername, locationname, contpername,
 				contmobnum, conteid, add1, add2, countryname, statename, cityname, groupname, zipcode, area,
 				locationcost, tag, typeofcustomer, opentime, closetime);
 
