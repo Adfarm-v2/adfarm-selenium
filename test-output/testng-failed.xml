@@ -5,6 +5,7 @@
     <classes>
       <class name="testcases.Test_Myplayers">
         <methods>
+          <include name="afterMethod"/>
           <include name="beforeMethod"/>
           <include name="Manageplayer"/>
           <include name="beforesuite"/>
