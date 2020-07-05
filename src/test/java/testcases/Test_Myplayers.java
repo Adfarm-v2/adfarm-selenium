@@ -4,6 +4,7 @@ import java.awt.AWTException;
 import java.io.FileInputStream;
 import java.io.IOException;
 
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -55,7 +56,7 @@ public class Test_Myplayers extends TestBase {
 		return testdata;
 	}
 
-	@Test(dataProvider = "playerdata")
+	@Test(dataProvider = "playerdata",enabled = false)
 	public void Createplayer(String name, String uname, String pwd, String status, String distname, String dealername,
 			String customername, String locationname, String contpername, String contmobnum, String conteid,
 			String add1, String add2, String countryname, String statename, String cityname, String groupname,
@@ -70,27 +71,21 @@ public class Test_Myplayers extends TestBase {
 	}
 
 	@Test(enabled = false)
-	public void Editplayer() {
+	public void Editplayer() throws InterruptedException {
 
-		player.editplayerdetails();
+		manageplayer.editplayerdetails();
 	}
 
-	@Test(enabled = false)
-	public void Playerdetails() {
-
-		player.playerdetails();
-	}
-
-	@Test(enabled = false)
+	@Test
 	public void Manageplayer() throws InterruptedException {
 
 		manageplayer.manageplayer();
 
 	}
 
-//	@AfterMethod
-//	public void afterMethod() {
-////		driver.quit();
-//	}
+	@AfterMethod(enabled = false)
+	public void afterMethod() {
+		driver.quit();
+	}
 
 }

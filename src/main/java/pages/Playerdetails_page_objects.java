@@ -18,8 +18,6 @@ import base.TestBase;
 
 public class Playerdetails_page_objects extends TestBase {
 
-	// ***************** Player Details ************************ //
-
 	@FindBy(xpath = "//a[@href='/dashboard/player-list']")
 	public static WebElement myplayer;
 	@FindBy(xpath = "//button[@type='button']")
@@ -109,13 +107,11 @@ public class Playerdetails_page_objects extends TestBase {
 	@FindBy(xpath = "//button[@type='submit']")
 	public static WebElement submit;
 
-	// ********************************************************************************************************************************
-	// //
+	// ************************************************************ //
 	public Playerdetails_page_objects() {
 		PageFactory.initElements(driver, this);
 	}
-	// ********************************************************************************************************************************
-	// //
+	// ************************************************************ //
 
 	public void createplayer(String name1, String uname3, String pwd2, String status31, String dist32,
 			String dealername4, String customername5, String locationname6, String contpername7, String contmobnum8,
@@ -467,119 +463,5 @@ public class Playerdetails_page_objects extends TestBase {
 		} catch (Exception e) {
 			System.out.println("Alredy except this exception");
 		}
-
-//		List<WebElement> totalpagination = driver
-//				.findElements(By.xpath("//li[starts-with(@class,'ant-pagination-item ant-pagination-item-')]"));
-//		List<String> names = new ArrayList<String>();
-//		for (int i = 1; i <= totalpagination.size(); i++) {
-//			String paginationselector = "//li[starts-with(@class,'ant-pagination-item ant-pagination-item-" + i + "')]";
-//			driver.findElement(By.xpath(paginationselector)).click();
-//			List<WebElement> usernamecolumns = driver
-//					.findElements(By.xpath("//tr[@class='ant-table-row ant-table-row-level-0']//td[2]"));
-//			for (WebElement totalusername : usernamecolumns) {
-//				names.add(totalusername.getText());
-//			}
-//		}
-//		System.out.println(names);
-//		try {
-//			if (names.contains(UName)) {
-//				test.log(LogStatus.PASS, "New PLayer Created Successfully!");
-//				System.out.println("New PLayer Created Successfully!");
-//			} else {
-//				test.log(LogStatus.ERROR, "Have some issues Player not Created");
-//				System.out.println("Have some issues Player not Created");
-//			}
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			test.log(LogStatus.ERROR, "Issue in Player creation");
-//		}
-
-	}
-
-	// ********************************************************************************************************************************
-	// //
-
-	public void editplayerdetails() {
-
-//		List<WebElement> totaltablecolumn = driver.findElements(By.xpath("//th[@class='ant-table-align-center']"));
-//		System.out.println("Total column: " + totaltablecolumn.size());
-//
-//		List<WebElement> totalrow = driver.findElements(By.xpath("//tr[@class='ant-table-row ant-table-row-level-0']"));
-//		System.out.println("Total row: " + totalrow.size());
-//
-//		List<WebElement> totalcell = driver.findElements(By.xpath("//tbody[@class='ant-table-tbody']//tr//td"));
-//		System.out.println("Total cell: " + totalcell.size());
-//
-//		List<WebElement> usernamecolumns = driver
-//				.findElements(By.xpath("//tr[@class='ant-table-row ant-table-row-level-0']//td[2]"));
-//		System.out.println("Total usernamecell: " + usernamecolumns.size());
-//
-//		List<String> totalusernames = new ArrayList<String>();
-//		for (WebElement totalusername : usernamecolumns) {
-//			totalusernames.add(totalusername.getText());
-//		}
-//		System.out.println(totalusernames);
-//		String testplayer = "Autoplayer1";
-//		if (totalusernames.contains(testplayer)) {
-//			System.out.println("In the list");
-//			String userpath = "//span[text()='" + testplayer + "']";
-//			driver.findElement(By.xpath(userpath)).click();
-//		} else {
-//			System.out.println("Not in the list");
-//		}
-//
-//		try {
-//			cost.sendKeys("6000");
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//
-//		try {
-//			driver.findElement(By.xpath("//button[@type='submit']")).click();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			test.log(LogStatus.ERROR, "Issue in Cost Field");
-//		}
-//
-//		try {
-//			String popupmessage = driver.findElement(By.xpath("//div[@class='ant-message']/span")).getText();
-//			System.out.println(popupmessage);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			test.log(LogStatus.ERROR, "Issue in pop-up");
-//		}
-	}
-
-	// ********************************************************************************************************************************
-	// //
-
-	public void playerdetails() {
-
-//		List<WebElement> totaltablecolumn = driver.findElements(By.xpath("//th[@class='ant-table-align-center']"));
-//		System.out.println("Total column: " + totaltablecolumn.size());
-//
-//		List<WebElement> totalrow = driver.findElements(By.xpath("//tr[@class='ant-table-row ant-table-row-level-0']"));
-//		System.out.println("Total row: " + totalrow.size());
-//
-//		List<WebElement> totalcell = driver.findElements(By.xpath("//tbody[@class='ant-table-tbody']//tr//td"));
-//		System.out.println("Total cell: " + totalcell.size());
-//
-//		List<WebElement> usernamecolumns = driver
-//				.findElements(By.xpath("//tr[@class='ant-table-row ant-table-row-level-0']//td[2]"));
-//		System.out.println("Total usernamecell: " + usernamecolumns.size());
-
-		List<WebElement> totalpagination = driver
-				.findElements(By.xpath("//li[starts-with(@class,'ant-pagination-item ant-pagination-item-')]"));
-
-		System.out.println("Total pagination: " + totalpagination.size());
-
-		List<String> names = new ArrayList<String>();
-
-		for (int i = 1; i <= totalpagination.size(); i++) {
-
-		}
-
-		// li[starts-with(@class,'ant-pagination-item ant-pagination-item-')]
-
 	}
 }
